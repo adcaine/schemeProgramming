@@ -8,3 +8,10 @@
 
 (insertToSortedList 3 (list 1 2 4))
 (insertToSortedList 8 empty)
+
+(define (sort-demo lst)
+  (cond
+    [(empty? lst) empty]
+    [else (insertToSortedList (first lst) (sort-demo (rest lst)))]))
+
+(sort-demo (list 8 2 -7 6 33 2))
