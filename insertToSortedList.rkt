@@ -15,3 +15,4 @@
     [else (insertToSortedList (first lst) (sort-demo (rest lst)))]))
 
 (sort-demo (list 8 2 -7 6 33 2))
+
