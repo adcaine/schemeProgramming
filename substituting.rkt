@@ -14,6 +14,8 @@
 
 (substitute (list 4 4 2 1) (list 'a 'b 'c 'd))
 
+(substitute (list 4 3 2 1 1 2 3 4) (list 'a 'b 'c 'd))
+
 (substitute empty (list 'a 'b 'c 'd))
 
 (substitute (list 2 2 1) (list 'a 'b 'c 'd))
