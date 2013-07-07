@@ -3,7 +3,7 @@
 #reader(lib "htdp-advanced-reader.ss" "lang")((modname substituting) (read-case-sensitive #t) (teachpacks ()) (htdp-settings #(#t constructor repeating-decimal #t #t none #f ())))
 (define (atIndex idx lst)
   (cond
-    [(or (empty? lst) (< idx 1)) empty]
+    [(or (empty? lst) (< idx 1)) (error "Error Invalid index")]
     [(= 1 idx) (first lst)]
     [else (atIndex (sub1 idx) (rest lst))]))
 
@@ -19,3 +19,6 @@
 (substitute (list 2 2 1) (list 'a 'b 'c 'd))
 
 (substitute (list 4 4 2 1) empty)
+
+(substitute (list 4 4 5 1) (list 'a 'b))
+
