@@ -10,11 +10,14 @@
 (define (substitute indicesList atomsList)
   (cond
     [(or (empty? indicesList) (empty? atomsList)) empty]
+    [(cons? (first indicesList)) (cons (substitute (first indicesList) atomsList) (substitute (rest indicesList) atomsList))]
     [else (cons (atIndex (first indicesList) atomsList) (substitute (rest indicesList) atomsList))]))
 
 (substitute (list 4 4 2 1) (list 'a 'b 'c 'd))
 
 (substitute (list 4 3 2 1 1 2 3 4) (list 'a 'b 'c 'd))
+
+(substitute (list 1 2 (list 4 2 4) 3 1) (list 'a 'b 'c 'd))
 
 (substitute empty (list 'a 'b 'c 'd))
 
