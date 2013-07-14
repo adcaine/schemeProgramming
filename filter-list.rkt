@@ -4,6 +4,7 @@
 (define (filter-list func lst)
   (cond
     [(empty? lst) empty]
+    [(empty? (first lst)) (cons empty (filter-list func (rest lst)))]
     [(cons? (first lst)) (cons (filter-list func (first lst)) (filter-list func (rest lst)))]
     [(func (first lst)) (cons (first lst) (filter-list func (rest lst)))]
     [else (filter-list func (rest lst))]))

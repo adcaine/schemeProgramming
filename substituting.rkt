@@ -10,6 +10,7 @@
 (define (substitute indicesList atomsList)
   (cond
     [(or (empty? indicesList) (empty? atomsList)) empty]
+    [(empty? (first indicesList)) (cons empty (substitute (rest indicesList) atomsList))]
     [(cons? (first indicesList)) (cons (substitute (first indicesList) atomsList) (substitute (rest indicesList) atomsList))]
     [else (cons (atIndex (first indicesList) atomsList) (substitute (rest indicesList) atomsList))]))
 
@@ -27,3 +28,4 @@
 
 (substitute (list 4 4 5 1) (list 'a 'b))
 
+(substitute (list empty (list 2 1 2 1)) (list 'a 'b))
